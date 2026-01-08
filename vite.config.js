@@ -1,7 +1,10 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [react()],
-})
+export default defineConfig(({ mode }) => {
+  // mode 會是 'development' 或 'production'
+  return {
+    base: mode === "production" ? "/React-Class2/" : "/",
+    plugins: [react()],
+  };
+});
